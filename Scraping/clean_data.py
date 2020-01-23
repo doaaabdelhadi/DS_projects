@@ -13,6 +13,8 @@ from langdetect import detect
 ## extract ratting number google
 def ratting_google(df, col):
     df[col]=df.rattings.str.extract('(\d+)')
+    df[col]= df[col].astype(float)
+    
     return(df.head())
 
 ### check Ar, En lang
@@ -35,3 +37,10 @@ def ratting(df,col):
     df[col]= df[col].astype(float)
     return (df.head())
     
+def ratting_class(df, col):
+    df['ratting_class']=''
+    df.loc[df[col] <= 3, 'ratting_class'] = 'Bad' 
+    df.loc[df[col] == 4, 'ratting_class'] = 'moderate' 
+    df.loc[df[col] == 5, 'ratting_class'] = 'good' 
+    return(df.head())    
+        
