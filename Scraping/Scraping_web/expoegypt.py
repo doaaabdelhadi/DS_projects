@@ -16,17 +16,9 @@ from selenium.webdriver.support import expected_conditions as EC
 import pandas as pd 
 from selenium.common.exceptions import NoSuchElementException
 
-#options = webdriver.ChromeOptions()
-#options.add_argument('--ignore-certificate-errors')
-
-#driver = webdriver.Edge('H:/Programs/MicrosoftWebDriver.exe')
 driver = webdriver.Chrome(executable_path=r'H:/Programs/chromedriver.exe')
 
 #url='http://www.expoegypt.gov.eg/exporters'
-def get_url(page_url, driver):
-    driver.get(page_url)
-    return True
-
 
 def CollectionData(driver):
     campanies_info = []
